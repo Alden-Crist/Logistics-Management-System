@@ -5,7 +5,11 @@ npm install express
 
 server.js
 
+npm install mysql2
 
+controllers
+models
+routes
 
 
 
