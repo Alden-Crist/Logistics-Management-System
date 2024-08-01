@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const cors =require('cors');
 const bodyParser =require('body-parser')
 const customerRouter = require('./routes/customerRoutes');
+const warehouseRouter = require('./routes/warehouseRoutes')
 
 
 const app = express();
@@ -30,7 +31,7 @@ app.use('/api/v1/customers', customerRouter);
 // app.use('/api/v1/shipments', recordRouter);
 // app.use('/api/v1/suppliers', recordRouter);
 // app.use('/api/v1/transportLogs',consultRouter);
-// app.use('/api/v1/warehouses', recordRouter);
+ app.use('/api/v1/warehouses', warehouseRouter);
 
 
 module.exports = app;
