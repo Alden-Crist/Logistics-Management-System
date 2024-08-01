@@ -3,7 +3,6 @@ const sequelize = require('./../config/db');
 const Product = require('./productModel')
 const Warehouse = require('./warehouseModel');
 
-
 const Inventory = sequelize.define('Inventory', {
     product_id: {
         type: DataTypes.INTEGER,
@@ -31,9 +30,7 @@ const Inventory = sequelize.define('Inventory', {
     timestamps: false
 });
 
-
 Inventory.belongsTo(Product, { foreignKey: 'product_id' });
 Inventory.belongsTo(Warehouse, { foreignKey: 'warehouse_id' });
-
 
 module.exports = Inventory;
