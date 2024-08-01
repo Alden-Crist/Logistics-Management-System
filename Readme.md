@@ -13,6 +13,8 @@ routes
 
 npm install sequelize
 
+npm install body-parser cors morgan
+
 
 
 
