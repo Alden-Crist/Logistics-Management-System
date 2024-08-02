@@ -13,8 +13,6 @@ exports.getAllWarehouses= async (req, res) => {
 };
 
 
-
-
 exports.createWarehouse = async (req, res) => {
     try {
         const { name, location, capacity } = req.body;

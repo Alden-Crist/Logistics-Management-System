@@ -9,7 +9,7 @@ router
 
 // router
 //   .route('/:id')
- // .get(warehouseController.getWarehouse) 
+// .get(warehouseController.getWarehouse) 
 //   .patch(customerController.updateCustomer) 
 //   .delete(customerController.deleteCustomer); 
 

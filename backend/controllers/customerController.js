@@ -14,12 +14,12 @@ exports.createCustomer = async (req, res) => {
     try {
         const { name, email, phone, address, password } = req.body;
 
-        // Ensure password is provided
+        
         if (!password) {
             return res.status(400).json({ error: 'Password is required' });
         }
 
-        // Create a new customer record
+       
         const newCustomer = await Customer.create({
             name,
             email,

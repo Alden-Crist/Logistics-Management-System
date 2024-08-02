@@ -15,8 +15,6 @@ exports.createtSupplier =async (req, res) => {
     try {
         const { name, contact_name, phone, email, address, password } = req.body;
         
-       
-        
         // Create the new supplier
         const newSupplier = await Supplier.create({
             name,
