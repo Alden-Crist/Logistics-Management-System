@@ -17,6 +17,7 @@ exports.createDriver =async (req, res) => {
             license_number,
             phone,
             assigned_vehicle_id,
+            
             created_at: new Date()
         });
         res.status(201).json(newDriver);
