@@ -5,7 +5,7 @@ const router = express.Router();
 router
   .route('/')
   .get(supplierController.getAllSuppliers) 
-  .post(supplierController.createSupplier)
+  .post(supplierController.createtSupplier)
 
 //  router
 //   .route('/:id')
