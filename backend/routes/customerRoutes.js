@@ -7,7 +7,7 @@ router
   .get(customerController.getAllCustomers) 
   .post(customerController.createCustomer)
 
-// router
+//  router
 //   .route('/:id')
 //   .get(customerController.getCustomer) 
 //   .patch(customerController.updateCustomer) 

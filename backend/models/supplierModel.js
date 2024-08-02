@@ -1,4 +1,4 @@
-const {  DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('./../config/db');
 
 const Supplier = sequelize.define('Supplier', {
@@ -17,6 +17,10 @@ const Supplier = sequelize.define('Supplier', {
     },
     address: {
         type: DataTypes.STRING
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     created_at: {
         type: DataTypes.DATE,
