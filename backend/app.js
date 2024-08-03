@@ -33,7 +33,7 @@ app.use('/api/v1/drivers', driverRouter);
 app.use('/api/v1/fleets', fleetRouter);
 app.use('/api/v1/inventory', inventoryRouter);
 app.use('/api/v1/orders', orderRouter);
-app.use('/api/v1/orderItems', orderItemRouter);
+app.use('/api/v1/orderIetems', orderItemRouter);
 app.use('/api/v1/products', productRouter);
 app.use('/api/v1/shipments', shipmentRouter);
 app.use('/api/v1/suppliers', supplierRouter);
