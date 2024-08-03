@@ -21,7 +21,7 @@ npm install body-parser cors morgan
 //frontend
 
 npx create-react-app .
-
+npm install react-router-dom
 
 
 tables required

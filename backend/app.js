@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const cors =require('cors');
 const bodyParser =require('body-parser')
 
+const adminRouter =require('./routes/adminRoutes');
 const customerRouter = require('./routes/customerRoutes');
 const driverRouter = require('./routes/driverRoutes')
 const fleetRouter = require('./routes/fleetRoutes')
@@ -14,6 +15,7 @@ const shipmentRouter = require('./routes/shipmentRoutes')
 const supplierRouter = require('./routes/supplierRoutes')
 const transportLogRouter = require('./routes/transportLogRoutes')
 const warehouseRouter = require('./routes/warehouseRoutes')
+
 
 const app = express();
 app.use(bodyParser.json());
@@ -28,6 +30,7 @@ app.use((req, res, next) => {
 
 app.use(morgan("dev"));
 
+app.use('/api/v1/admins',adminRouter);
 app.use('/api/v1/customers', customerRouter);
 app.use('/api/v1/drivers', driverRouter);
 app.use('/api/v1/fleets', fleetRouter);

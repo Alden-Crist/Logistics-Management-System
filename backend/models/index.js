@@ -1,6 +1,6 @@
 const sequelize = require('./../config/db');
 
-
+const Admin =require('./adminModel')
 const Customer = require('./customerModel')
 const Supplier = require('./supplierModel')
 const Product = require('./productModel')
@@ -19,6 +19,7 @@ const TransportLog = require('./transportLogModel')
 // Export models
 module.exports = {
     sequelize,
+    Admin,
     Customer,
     Supplier,
     Product,
