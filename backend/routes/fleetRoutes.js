@@ -7,4 +7,14 @@ router
   .get(fleetController.getAllVehicles) 
   .post(fleetController.createFleet)
 
+
+  
+
+// router
+//   .route('/:id')
+// .get(warehouseController.getWarehouse) 
+//   .patch(customerController.updateCustomer) 
+//   .delete(customerController.deleteCustomer); 
+
+
 module.exports = router;
