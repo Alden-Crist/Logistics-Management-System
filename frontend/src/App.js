@@ -1,13 +1,18 @@
-
 import './App.css';
-import customerReg from "./components/customerReg";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './home/home.jsx';
+import CustomerSignUp from './customer/customer.jsx';
+import CustomerDashBoard from './customer/customerDashBoard.jsx';
 
 function App() {
   return (
-    <div>
-     <customerReg/>
-    </div>
-    
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/CustomerSignUp' element={<CustomerSignUp/>}/>
+        <Route path='/CustomerDashBoard' element={<CustomerDashBoard/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

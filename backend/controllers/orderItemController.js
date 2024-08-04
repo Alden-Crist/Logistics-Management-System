@@ -1,11 +1,12 @@
 const OrderItem = require('./../models/orderItemModel');
 const Order =require('./../models/orderModel');
 const Product = require('./../models/productModel');
+const Customer = require('./../models/customerModel');
 
 exports.getAllOrderItems = async (req, res) => {
     try {
         const orderItems = await OrderItem.findAll({
-            include: [{ model: Order }, { model: Product }]
+            include: [{ model: Order }, { model: Product },{ model: Customer }]
         });
         res.status(200).json(orderItems);
     } catch (error) {
@@ -16,10 +17,11 @@ exports.getAllOrderItems = async (req, res) => {
 
 exports.createOrderItem =async (req, res) => {
     try {
-        const { order_id, product_id, quantity, price } = req.body;
+        const { order_id, product_id,customer_id, quantity, price } = req.body;
         const newOrderItem = await OrderItem.create({
             order_id,
             product_id,
+            customer_id,
             quantity,
             price
         });
