@@ -1,12 +1,28 @@
- .container {
+body {
+  background-image: url('https://images.blocksurvey.io/templates/association-registration-form.png'); /* Replace with your image path or URL */
+  background-size: cover; /* Cover the entire page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Don't repeat the image */
+  background-attachment: fixed; /* Fixed position during scroll */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  font-family: Arial, sans-serif; /* Example font family */
+  height: 100vh; /* Set height to full viewport */
+}
+
+
+
+  .card-body {
+    background-color: transparent;
+    padding: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex: 1;
   }
-  
+
   .card {
-    background: #fff;
+    background: transparent;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 85%;
@@ -15,15 +31,9 @@
     overflow: hidden;
   }
   
-  .card-body {
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-  }
   
   .form-container {
+    background: transparent;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -31,10 +41,12 @@
   }
   
   .form-content {
+    background: transparent;
     flex: 1;
   }
   
   .image-container {
+    background-color: transparent;
     flex: 1;
     display: flex;
     justify-content: center;
