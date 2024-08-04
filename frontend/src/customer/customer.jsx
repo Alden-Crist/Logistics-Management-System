@@ -1,6 +1,9 @@
+// CustomerSignUp.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './Customer.css';
+
 
 const CustomerSignUp = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +15,8 @@ const CustomerSignUp = () => {
     confirmPassword: '',
     termsAccepted: false,
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -42,7 +47,7 @@ const CustomerSignUp = () => {
 
       if (response.status === 200 || response.status === 201) {
         alert('Registration successful!');
-        // Reset form or redirect
+        navigate('/CustomerDashBoard');
       } else {
         alert('Registration failed: ' + response.data.message);
       }
