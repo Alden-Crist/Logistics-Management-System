@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './home/home.jsx';
-import Admin from './admin/admin.jsx';
+import Admin from './admin/Admin.jsx';
 import AdminDashBoard from './admin/adminDashBoard.jsx';
 import Customer from './customer/customer.jsx';
 import CustomerSignUp from './customer/customerSignUp.jsx';
