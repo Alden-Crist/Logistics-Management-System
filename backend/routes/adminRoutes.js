@@ -7,10 +7,17 @@ router
   .get(adminController.getAllAdmins) 
   .post(adminController.createAdmin)
 
+
+router.route('/login').post(adminController.loginAdmin);
+
 //  router
 //   .route('/:id')
 //   .get(customerController.getCustomer) 
 //   .patch(customerController.updateCustomer) 
 //   .delete(customerController.deleteCustomer); 
+
+router
+  .route('/:id')
+  .get(adminController.getAdmin) 
 
 module.exports = router;
