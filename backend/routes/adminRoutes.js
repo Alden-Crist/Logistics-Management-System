@@ -7,6 +7,9 @@ router
   .get(adminController.getAllAdmins) 
   .post(adminController.createAdmin)
 
+
+router.route('/login').post(adminController.loginAdmin);
+
 //  router
 //   .route('/:id')
 //   .get(customerController.getCustomer) 

@@ -7,6 +7,9 @@ router
   .get(supplierController.getAllSuppliers) 
   .post(supplierController.createtSupplier)
 
+router.route('/login').post(supplierController.loginSupplier);
+
+
 //  router
 //   .route('/:id')
 //   .get(customerController.getCustomer) 
