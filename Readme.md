@@ -24,6 +24,9 @@ npx create-react-app .
 npm install react-router-dom
 npm install axios
 
+
+
+
 tables required
 Customers: Manages customer data.
 Suppliers: Manages supplier information.
