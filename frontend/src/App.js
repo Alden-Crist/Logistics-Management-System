@@ -2,8 +2,8 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './home/home.jsx';
-
 import Admin from './admin/admin.jsx';
+import AdminDashBoard from './admin/adminDashBoard.jsx';
 import Customer from './customer/customer.jsx';
 import CustomerSignUp from './customer/customerSignUp.jsx';
 import CustomerDashBoard from './customer/customerDashBoard.jsx';
@@ -19,6 +19,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Admin' element={<Admin/>}/>
+        <Route path='/AdminDashBoard' element={<AdminDashBoard/>}/>
         <Route path='/Customer' element={<Customer/>}/>
         <Route path='/CustomerSignUp' element={<CustomerSignUp/>}/>
         <Route path='/CustomerDashBoard' element={<CustomerDashBoard/>}/>

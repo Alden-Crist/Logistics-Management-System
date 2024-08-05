@@ -16,4 +16,8 @@ router.route('/login').post(adminController.loginAdmin);
 //   .patch(customerController.updateCustomer) 
 //   .delete(customerController.deleteCustomer); 
 
+router
+  .route('/:id')
+  .get(adminController.getAdmin) 
+
 module.exports = router;

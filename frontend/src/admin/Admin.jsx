@@ -1,4 +1,3 @@
-// src/components/Admin.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './Admin.css'; 
@@ -23,7 +22,8 @@ const Admin = () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Login successful:', data);
-                navigate('/AdminDashboard'); 
+                localStorage.setItem('adminId', data.adminId); // Save admin ID to local storage
+                navigate('/AdminDashBoard'); 
             } else {
                 const data = await response.json();
                 setError(data.message);

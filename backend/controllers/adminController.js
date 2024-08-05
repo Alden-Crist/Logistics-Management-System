@@ -9,6 +9,31 @@ exports.getAllAdmins =  async (req, res) => {
     }
   };
 
+  exports.getAdmin = async (req, res) => {
+    try {
+        const admin = await Admin.findByPk(req.params.id);
+        
+        if (!admin) {
+            return res.status(404).json({
+                status: 'fail',
+                message: 'Admin not found',
+            });
+        }
+
+        res.status(200).json({
+            status: 'success',
+            data: {
+                admin,
+            },
+        });
+    } catch (err) {
+        res.status(500).json({
+            status: 'error',
+            message: err.message,
+        });
+    }
+};
+
 exports.createAdmin =async (req, res) => {
     try {
       const { name, password, gmail } = req.body;
