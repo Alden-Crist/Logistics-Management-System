@@ -22,7 +22,7 @@ const Admin = () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Login successful:', data);
-                localStorage.setItem('adminId', data.adminId); // Save admin ID to local storage
+                localStorage.setItem('adminId', data.adminId); 
                 navigate('/AdminDashBoard'); 
             } else {
                 const data = await response.json();
