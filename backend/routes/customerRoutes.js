@@ -7,6 +7,8 @@ router
   .get(customerController.getAllCustomers) 
   .post(customerController.createCustomer)
 
+
+router.route('/login').post(customerController.loginCustomer);
 //  router
 //   .route('/:id')
 //   .get(customerController.getCustomer) 

@@ -2,7 +2,7 @@ const express = require('express');
 const { sequelize } = require('./models'); // Import sequelize from the models/index.js file
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 
 const app = require("./app");

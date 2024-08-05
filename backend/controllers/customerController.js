@@ -34,3 +34,24 @@ exports.createCustomer = async (req, res) => {
         return res.status(500).json({ error: 'Internal server error' });
     }
 };
+
+
+exports.loginCustomer = async (req, res) => {
+    const { name, password } = req.body; // Assuming email is used for login
+    try {
+        const customer = await Customer.findOne({ where: { name } });
+        if (customer) {
+            // Directly compare the provided password with the stored password (not recommended for production)
+            if (customer.password === password) {
+                return res.status(200).json({ message: 'Login successful', customerId: customer.id });
+            } else {
+                return res.status(401).json({ message: 'Invalid credentials' });
+            }
+        } else {
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: 'Server error' });
+    }
+};
