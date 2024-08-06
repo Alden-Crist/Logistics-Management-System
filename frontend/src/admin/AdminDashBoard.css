@@ -21,9 +21,14 @@
 
 .search-button {
     padding: 10px;
-    width:300px;
+    width:200px;
     align-items: center;
     justify-content:center;
+}
+
+.search-button:hover {
+    background-color: rgb(185, 116, 116);
+    color:rgb(16, 11, 11);
 }
 
 .logout-button {

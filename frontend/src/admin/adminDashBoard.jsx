@@ -43,7 +43,18 @@ const AdminDashboard = () => {
             navigate('/Shipment');
         }else if (query === 'warehouse') {
             navigate('/Warehouse');
-        }
+        }  else if (query === 'vehicles' || query === 'fleets') {
+            navigate('/VehicleRecord');
+        } else if (query === 'customer' || query === 'customers') {
+            navigate('/CustomerRecord');
+        } else if (query === 'product' || query === 'products') {
+            navigate('/ProductRecord');
+        } else if (query === 'orderitems') {
+            navigate('/OrderItemsRecord');
+        } else if (query === 'orders') {
+            navigate('/OrderRecord');
+        } 
+        
     };
 
     const handleLogout = () => {
@@ -57,7 +68,7 @@ const AdminDashboard = () => {
                 <h1>Welcome, {adminName}!</h1>
             </header>
             <main className="dashboard-main">
-                <p className="dashboard-info">This is your admin dashboard. This is where you can add drivers, check warehouses, manage inventory, and notify suppliers about low stock items. You also handle the delivery of products to customers.</p>
+                <p className="dashboard-info">This is the admin dashboard. This is where admins can add drivers, check warehouses, manage inventory, and notify suppliers about low stock items. You also handle the delivery of products to customers, handling here refers to the assign the driver and the vechile which is availiable on that route</p>
                 <form onSubmit={handleSearch}>
                     <input
                         type="text"

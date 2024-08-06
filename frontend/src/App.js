@@ -10,6 +10,11 @@ import SupplierRecord from './admin/supplierR.jsx';
 import Inventory from './admin/inventory.jsx';
 import Shipment from './admin/shipment.jsx';
 import Warehouse from './admin/Warehouse.jsx';
+import CustomerRecord from './admin/customerR.jsx';
+import ProductRecord from './admin/productR.jsx';
+import VehicleRecord from './admin/vehicleR.jsx';
+import OrderItemsRecord from './admin/orderItemsR.jsx';
+import OrderRecord from './admin/orderR.jsx';
 import Customer from './customer/customer.jsx';
 import CustomerSignUp from './customer/customerSignUp.jsx';
 import CustomerDashBoard from './customer/customerDashBoard.jsx';
@@ -32,6 +37,11 @@ function App() {
         <Route path='/Inventory' element={<Inventory/>}/>
         <Route path='/Shipment' element={<Shipment/>}/>
         <Route path='/Warehouse' element={<Warehouse/>}/>
+        <Route path='/CustomerRecord' element={<CustomerRecord/>}/>
+        <Route path='/VehicleRecord' element={<VehicleRecord/>}/>
+        <Route path='/ProductRecord' element={<ProductRecord/>}/>
+        <Route path='/OrderItemsRecord' element={<OrderItemsRecord/>}/>
+        <Route path='/OrderRecord' element={<OrderRecord/>}/>
         <Route path='/Customer' element={<Customer/>}/>
         <Route path='/CustomerSignUp' element={<CustomerSignUp/>}/>
         <Route path='/CustomerDashBoard' element={<CustomerDashBoard/>}/>
