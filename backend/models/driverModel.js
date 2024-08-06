@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./../config/db');
-const Fleet = require('./fleetModel')
+const Fleet = require('./fleetModel');
 
 const Driver = sequelize.define('Driver', {
     name: {
@@ -15,6 +15,7 @@ const Driver = sequelize.define('Driver', {
     },
     assigned_vehicle_id: {
         type: DataTypes.INTEGER,
+        allowNull: true, // Set to true to make it nullable
         references: {
             model: 'fleet',
             key: 'id'

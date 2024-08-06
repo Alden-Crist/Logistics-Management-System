@@ -11,6 +11,6 @@ router
 //   .route('/:id')
 //   .get(customerController.getCustomer) 
 //   .patch(customerController.updateCustomer) 
-//   .delete(customerController.deleteCustomer); 
+  router.route('/:id').delete(driverController.deleteDriver); 
 
 module.exports = router;

@@ -3,7 +3,6 @@
 }
 
 .driver-header {
-    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -11,22 +10,81 @@
     margin-top: 20px;
 }
 
+.show-form-button {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.show-form-button:hover {
+    background-color: #0056b3;
+}
+
+#addDriverForm {
+    margin-bottom: 20px;
+}
+
+.driver-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius:10px;
+}
+
+.driver-table th, .driver-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    
+}
+
+.driver-table th {
+    background-color: #f2f2f2;
+}
+.driver-container {
+    padding: 20px;
+}
+
+.driver-header {
+    text-align: center;
+}
+
+.driver-main {
+    margin-top: 20px;
+}
+
+.show-form-button {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.show-form-button:hover {
+    background-color: #0056b3;
+}
+
+#addDriverForm {
+    margin-bottom: 20px;
+}
+
 .driver-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.driver-table th,
-.driver-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
+.driver-table th, .driver-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
     text-align: left;
 }
 
 .driver-table th {
-    background-color: #912a2a;
-}
-
-.driver-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f2f2f2;
 }
