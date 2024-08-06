@@ -1,0 +1,32 @@
+.driver-container {
+    padding: 20px;
+}
+
+.driver-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.driver-main {
+    margin-top: 20px;
+}
+
+.driver-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.driver-table th,
+.driver-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.driver-table th {
+    background-color: #912a2a;
+}
+
+.driver-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

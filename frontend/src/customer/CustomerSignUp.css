@@ -1,6 +1,6 @@
 body {
-  background-image: url('https://images.blocksurvey.io/templates/association-registration-form.png'); /* Replace with your image path or URL */
-  background-size: cover; /* Cover the entire page */
+  background-image: url('https://images.blocksurvey.io/templates/association-registration-form.png'); 
+  background-size: cover; 
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Don't repeat the image */
   background-attachment: fixed; /* Fixed position during scroll */

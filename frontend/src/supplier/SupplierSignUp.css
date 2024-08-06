@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
@@ -12,7 +11,7 @@ body {
     margin-top: 20px;
   }
   
-  /* Container */
+  
   .container {
     width: 80%;
     margin: 0 auto;
@@ -22,7 +21,7 @@ body {
     border-radius: 8px;
   }
   
-  /* Forms and Inputs */
+  
   select, input[type="number"], button {
     display: block;
     width: 100%;
@@ -43,7 +42,7 @@ body {
     background-color: #45a049;
   }
   
-  /* Tables */
+  
   table {
     width: 100%;
     border-collapse: collapse;
@@ -69,7 +68,7 @@ body {
     background-color: #ddd;
   }
   
-  /* Sections */
+  
   .section {
     margin-bottom: 40px;
   }

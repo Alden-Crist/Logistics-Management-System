@@ -1,4 +1,3 @@
-// src/components/SupplierLogin.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './Supplier.css'; 
