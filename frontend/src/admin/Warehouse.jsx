@@ -5,7 +5,6 @@ const Warehouse = () => {
     const [warehouses, setWarehouses] = useState([]);
 
     useEffect(() => {
-        // Fetch the warehouse data from the API
         axios.get('http://localhost:3000/api/v1/warehouses')
             .then(response => {
                 setWarehouses(response.data);

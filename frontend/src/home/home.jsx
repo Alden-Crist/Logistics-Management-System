@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css';
-import logo from './logo.png'; // Update with your logo path
-import backgroundImage from './main-bg.jpg'; // Update with your image path
+import logo from './logo.png'; 
+import backgroundImage from './main-bg.jpg'; 
 import { NavLink } from 'react-router-dom';
 
 const Home = () => {

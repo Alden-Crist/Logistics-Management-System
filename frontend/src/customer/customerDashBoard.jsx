@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './CustomerDashBoard.css';  // Import the CSS file
+import './CustomerDashBoard.css';  
 
 const CustomerDashboard = () => {
   const [products, setProducts] = useState([]);
@@ -9,7 +9,7 @@ const CustomerDashboard = () => {
   const [shipments, setShipments] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const customerId = 3;  // Replace this with the actual customer ID
+  const customerId = 3; 
 
   useEffect(() => {
     fetchProducts();
@@ -64,7 +64,7 @@ const CustomerDashboard = () => {
     const totalAmount = selectedProductDetails.price * quantity;
 
     try {
-      // Step 1: Create the order
+      
       const orderResponse = await axios.post('http://localhost:300/api/v1/orders', {
         customer_id: customerId,
         order_date: new Date().toISOString(),
@@ -74,7 +74,7 @@ const CustomerDashboard = () => {
 
       const orderId = orderResponse.data.id;
 
-      // Step 2: Create the order item
+      
       await axios.post('http://localhost:300/api/v1/order_items', {
         order_id: orderId,
         product_id: selectedProduct,

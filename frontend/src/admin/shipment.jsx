@@ -6,7 +6,7 @@ const Shipment = () => {
     const [selectedOrder, setSelectedOrder] = useState(null);
 
     useEffect(() => {
-        // Fetch the shipment data from the API
+        
         axios.get('http://localhost:3000/api/v1/shipments')
             .then(response => {
                 setShipments(response.data);
