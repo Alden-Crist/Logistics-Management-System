@@ -12,5 +12,6 @@ router
 // .get(warehouseController.getWarehouse) 
 //   .patch(customerController.updateCustomer) 
 //   .delete(customerController.deleteCustomer); 
+router.route('/:id').delete(warehouseController.deleteWarehouse); 
 
 module.exports = router;
