@@ -39,9 +39,9 @@ const AdminDashboard = () => {
             navigate('/SupplierRecord');
         }else if (query === 'inventory') {
             navigate('/Inventory');
-        }else if (query === 'shipment') {
+        }else if (query === 'shipment' || query === 'Shipment') {
             navigate('/Shipment');
-        }else if (query === 'warehouse') {
+        }else if (query === 'warehouse '  || query === 'Warehouse') {
             navigate('/Warehouse');
         }  else if (query === 'vehicles' || query === 'fleets') {
             navigate('/VehicleRecord');
