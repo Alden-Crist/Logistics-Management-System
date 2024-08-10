@@ -31,13 +31,13 @@ const AdminDashboard = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         const query = searchQuery.toLowerCase();
-        if (query === 'drivers') {
+        if (query === 'drivers' || query === 'Drivers') {
             navigate('/Driver');
-        } else if (query === 'transportlogs') {
+        } else if (query === 'transportlogs' || query === 'Transportlogs') {
             navigate('/TransportLog');
-        } else if (query === 'suppliers') {
+        } else if (query === 'suppliers' || query === 'Suppliers') {
             navigate('/SupplierRecord');
-        }else if (query === 'inventory') {
+        }else if (query === 'inventory' || query === 'Inventory') {
             navigate('/Inventory');
         }else if (query === 'shipment' || query === 'Shipment') {
             navigate('/Shipment');
@@ -49,9 +49,9 @@ const AdminDashboard = () => {
             navigate('/CustomerRecord');
         } else if (query === 'product' || query === 'products') {
             navigate('/ProductRecord');
-        } else if (query === 'orderitems') {
+        } else if (query === 'orderitems' || query === 'Orderitems') {
             navigate('/OrderItemsRecord');
-        } else if (query === 'orders') {
+        } else if (query === 'orders' || query === 'Orders') {
             navigate('/OrderRecord');
         } 
         
