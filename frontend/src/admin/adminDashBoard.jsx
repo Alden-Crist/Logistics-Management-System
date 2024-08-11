@@ -47,7 +47,7 @@ const AdminDashboard = () => {
             navigate('/VehicleRecord');
         } else if (query === 'customer' || query === 'customers') {
             navigate('/CustomerRecord');
-        } else if (query === 'product' || query === 'products') {
+        } else if (query === 'product' || query === 'products'|| query === 'Products') {
             navigate('/ProductRecord');
         } else if (query === 'orderitems' || query === 'Orderitems') {
             navigate('/OrderItemsRecord');
