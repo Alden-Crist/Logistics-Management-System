@@ -68,7 +68,7 @@ const AdminDashboard = () => {
                 <h1>Welcome, {adminName}!</h1>
             </header>
             <main className="dashboard-main">
-                <p className="dashboard-info">This is the admin dashboard. This is where admins can add drivers, check warehouses, manage inventory, and notify suppliers about low stock items. You also handle the delivery of products to customers, handling here refers to the assign the driver and the vechile which is availiable on that route</p>
+                <p className="dashboard-info">This is ok the admin dashboard. This is where admins can add drivers, check warehouses, manage inventory, and notify suppliers about low stock items. You also handle the delivery of products to customers, handling here refers to the assign the driver and the vechile which is availiable on that route</p>
                 <form onSubmit={handleSearch}>
                     <input
                         type="text"
