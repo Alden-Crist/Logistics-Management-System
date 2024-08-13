@@ -81,6 +81,8 @@ nav {
   }
   
   .track-form button {
+    width:20%;
+    margin:20px auto;
     padding: 10px 20px;
     background-color: #ff6600;
     border: none;

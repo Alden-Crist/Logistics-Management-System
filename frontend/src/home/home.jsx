@@ -30,7 +30,7 @@ const Home = () => {
           <p>For Order Status Inquiry</p>
           <div className="track-form">
             <input type="text" placeholder="Your Tracking ID" />
-            <button>Track & Trace</button>
+            <button className='button_track'>Track & Trace</button>
           </div>
         </div>
       </section>
