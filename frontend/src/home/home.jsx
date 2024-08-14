@@ -34,6 +34,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <footer>
+        <p>&copy; 2024 logistics management system . All righs reserved</p>
+      </footer>
     </div>
   );
 }
