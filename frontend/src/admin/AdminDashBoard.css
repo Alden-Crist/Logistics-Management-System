@@ -1,9 +1,22 @@
 .dashboard-container {
+    font-family: Arial, sans-serif;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-header {
     margin-bottom: 20px;
+    text-align: center;
+}
+
+.dashboard-header h1 {
+    font-size: 2em;
+    color: #343a40;
+    margin: 0;
 }
 
 .dashboard-main {
@@ -12,38 +25,57 @@
 
 .dashboard-info {
     margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #495057;
+    line-height: 1.5;
 }
 
 .search-bar {
-    padding: 10px;
+    padding: 12px;
     margin-right: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    width: calc(100% - 120px);
+    box-sizing: border-box;
 }
 
 .search-button {
-    padding: 10px;
-    width:200px;
-    align-items: center;
-    justify-content:center;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .search-button:hover {
-    background-color: rgb(185, 116, 116);
-    color:rgb(16, 11, 11);
+    background-color: #0056b3;
+    color: white;
+    transform: scale(1.05);
 }
 
 .logout-button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     background-color: #d9534f;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 20px;
-    width:200px;
+    width: 150px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .logout-button:hover {
     background-color: #c9302c;
- 
+    transform: scale(1.05);
 }
 
+.dashboard-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #6c757d;
+}
