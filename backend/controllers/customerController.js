@@ -37,11 +37,13 @@ exports.createCustomer = async (req, res) => {
 
 
 exports.loginCustomer = async (req, res) => {
-    const { name, password } = req.body; // Assuming email is used for login
+    const { name, password } = req.body;
+    console.log('Received Name:', name);  // Log the name received from the request
     try {
         const customer = await Customer.findOne({ where: { name } });
+        console.log('Customer Found:', customer);  // Log the customer object found
+        
         if (customer) {
-            // Directly compare the provided password with the stored password (not recommended for production)
             if (customer.password === password) {
                 return res.status(200).json({ message: 'Login successful', customerId: customer.id });
             } else {

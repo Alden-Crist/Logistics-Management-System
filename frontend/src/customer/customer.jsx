@@ -18,14 +18,15 @@ const Customer = () => {
                 },
                 body: JSON.stringify({ name, password }),
             });
-
+    
             if (response.ok) {
                 const data = await response.json();
                 console.log('Login successful:', data);
+                localStorage.setItem('customerId', data.customerId); // Store customer ID in local storage
                 navigate('/CustomerDashBoard'); 
             } else {
                 const data = await response.json();
-                setError(data.message);
+                setError(data.message || 'Login failed');
             }
         } catch (err) {
             console.error('Error:', err);
@@ -50,6 +51,7 @@ const Customer = () => {
                         onChange={(e) => setName(e.target.value)}
                         required
                         className="form-control"
+                        placeholder="Enter your name (e.g., Alice Smith)"
                     />
                 </div>
                 <div className="form-group">
@@ -61,6 +63,7 @@ const Customer = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                         className="form-control"
+                        placeholder="Enter your password (e.g., 1234565)"
                     />
                 </div>
                 <button type="submit" className="submit-button">Login</button>
