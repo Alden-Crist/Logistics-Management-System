@@ -82,7 +82,7 @@ const AdminDashboard = () => {
                 <button className="logout-button" onClick={handleLogout}>Logout</button>
             </main>
             <footer className="dashboard-footer">
-                <p>&copy; 2024 Company</p>
+                <p>&copy; 2024 Company All Rights Reserved.</p>
             </footer>
         </div>
     );
