@@ -64,9 +64,7 @@ const Admin = () => {
                 {error && <p className="error-message">{error}</p>}
             </form>
             <div>
-            <footer>
-        <p>&copy; 2024 logistics management system . All righs reserved</p>
-      </footer>
+            
       </div>
         </div>
     );

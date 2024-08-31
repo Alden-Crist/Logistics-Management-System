@@ -145,13 +145,7 @@ const SupplierSignUp = () => {
                 <button type="submit" className="btn">Register</button>
               </form>
             </div>
-            <div className="image-container">
-              <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/011/431/349/small/t-shirt-print-on-demand-services-promotional-apparel-design-merch-clothing-custom-merchandise-products-merch-design-service-concept-flat-modern-illustration-vector.jpg"
-                alt="Sample"
-                className="image"
-              />
-            </div>
+            
           </div>
         </div>
       </div>
