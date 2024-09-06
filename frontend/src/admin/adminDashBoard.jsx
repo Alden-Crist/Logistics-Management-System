@@ -43,7 +43,7 @@ const AdminDashboard = () => {
             navigate('/Shipment');
         }else if (query === 'warehouse '  || query === 'Warehouse') {
             navigate('/Warehouse');
-        }  else if (query === 'vehicles' || query === 'fleets') {
+        }  else if (query === 'Vehicles' || query === 'fleets') {
             navigate('/VehicleRecord');
         } else if (query === 'customer' || query === 'customers') {
             navigate('/CustomerRecord');
@@ -80,6 +80,21 @@ const AdminDashboard = () => {
                     <button type="submit" className="search-button">Search</button>
                 </form>
                 <button className="logout-button" onClick={handleLogout}>Logout</button>
+                <h2 className="list-heaading">You Can Search for and take actions on</h2><br></br>
+                <ul>
+                    <li>Drivers</li>
+                    <li>TransportLogs</li>
+                    <li>Suppliers</li>
+                    <li>Inventory</li>
+                    <li>Shipment</li>
+                    <li>Warehouse</li>
+                    <li>Vechiles</li>
+                    <li>Customer</li>
+                    <li>Produtct</li>
+                    <li>Orders</li>
+                    <li>Orderitems</li>
+
+                </ul>
             </main>
             <footer className="dashboard-footer">
                 <p>&copy;acr 2024 Company All Rights Reserved.</p>
