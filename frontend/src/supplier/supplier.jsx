@@ -22,7 +22,12 @@ const Supplier = () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Login successful:', data);
-                navigate('/CustomerDashboard'); 
+                
+                // Store the supplier ID in local storage
+                localStorage.setItem('supplierId', data.supplierId);
+
+                // Navigate to SupplierDashboard
+                navigate('/SupplierDashboard');
             } else {
                 const data = await response.json();
                 setError(data.message);
