@@ -41,7 +41,7 @@ exports.loginSupplier = async (req, res) => {
         if (supplier) {
             // Directly compare the provided password with the stored password (not recommended for production)
             if (supplier.password === password) {
-                return res.status(200).json({ message: 'Login successful', supplieId: supplier.id });
+                return res.status(200).json({ message: 'Login successful', supplierId: supplier.id });
             } else {
                 return res.status(401).json({ message: 'Invalid credentials' });
             }
