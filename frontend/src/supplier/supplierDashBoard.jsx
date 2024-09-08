@@ -1,6 +1,6 @@
 import React, { useState, useEffect ,useCallback } from 'react';
 import axios from 'axios';
-import './SupplierDashboard.css';
+import './supplierDashboard.css';
 
 
 const SupplierDashboard = () => {
@@ -65,7 +65,7 @@ const SupplierDashboard = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container_s">
       <h1>Supplier Dashboard</h1>
 
       <div className="section">
