@@ -9,20 +9,7 @@ const sequelize = new Sequelize('logistic_management', 'root', 'Alden@88', {
     logging: false,
 });
 
-// const certificatePath = path.resolve(__dirname, './server-ca.crt');
-// // Connection to the remote MySQL database
-// const sequelize = new Sequelize('logistic_management', 'alden', 'AVNS_BDwNExTVJDd2WWNPjuC', {
-//     host: 'mysql-08-alden.c.aivencloud.com',
-//     port: 18700,
-//     dialect: 'mysql',
-//     logging: false,
-//     dialectOptions: {
-//         ssl: {
-//             ca: fs.readFileSync(certificatePath, 'utf8'), // Ensure the path and file name are correct
-//             rejectUnauthorized: true
-//         },
-//     },
-// });
+
 
 // // Test the connection
 // sequelize.authenticate()
