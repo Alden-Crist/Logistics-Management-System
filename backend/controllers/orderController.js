@@ -28,3 +28,28 @@ exports.createOrder =async (req, res) => {
         res.status(500).json({ error: 'Failed to create order' });
     }
 };
+
+
+exports.deleteOrder = async (req, res) => {
+    try {
+        
+        const order = await Order.findByPk(req.params.id);
+
+        if (!order) {
+            return res.status(404).json({ status: 'fail', message: 'Order not found' });
+        }
+
+        // Delete the order;
+        await order.destroy();
+
+        res.status(204).json({
+            status: 'success',
+            data: null,
+        });
+    } catch (err) {
+        res.status(500).json({
+            status: 'fail',
+            message: err.message,
+        });
+    }
+};

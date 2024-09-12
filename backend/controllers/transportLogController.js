@@ -35,3 +35,27 @@ exports.createTransportLog= async (req, res) => {
         res.status(500).json({ error: 'Failed to create transport log' });
     }
 };
+
+exports.deleteTransportLog = async (req, res) => {
+    try {
+        
+        const log = await TransportLog.findByPk(req.params.id);
+
+        if (!log) {
+            return res.status(404).json({ status: 'fail', message: 'TransportLog not found' });
+        }
+
+        // Delete the pRODUCT
+        await log.destroy();
+
+        res.status(204).json({
+            status: 'success',
+            data: null,
+        });
+    } catch (err) {
+        res.status(500).json({
+            status: 'fail',
+            message: err.message,
+        });
+    }
+};

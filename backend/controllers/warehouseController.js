@@ -46,3 +46,26 @@ exports.deleteWarehouse = async (req, res) => {
         });
     }
 };
+
+exports.updateWarehouse = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { capacity } = req.body; // Expecting 'capacity' from the request body
+
+        // Find the warehouse by ID
+        const warehouse = await Warehouse.findByPk(id);
+
+        if (!warehouse) {
+            return res.status(404).json({ error: 'Warehouse not found' });
+        }
+
+        // Update the warehouse's capacity
+        warehouse.capacity = capacity;
+        await warehouse.save();
+
+        res.status(200).json({ message: 'Warehouse capacity updated successfully', warehouse });
+    } catch (error) {
+        console.error('Error updating warehouse capacity:', error);
+        res.status(500).json({ error: 'Failed to update warehouse capacity' });
+    }
+};

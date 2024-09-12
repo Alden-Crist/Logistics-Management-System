@@ -29,3 +29,27 @@ exports.createShipment = async (req, res) => {
         res.status(500).json({ error: 'Failed to create shipment' });
     }
 };
+
+exports.deleteShipment = async (req, res) => {
+    try {
+        // Find the driver first
+        const shipment = await Shipment.findByPk(req.params.id);
+
+        if (!shipment) {
+            return res.status(404).json({ status: 'fail', message: 'Shipment  not found' });
+        }
+
+        // Delete the driver
+        await shipment.destroy();
+
+        res.status(204).json({
+            status: 'success',
+            data: null,
+        });
+    } catch (err) {
+        res.status(500).json({
+            status: 'fail',
+            message: err.message,
+        });
+    }
+};

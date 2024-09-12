@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './home/home.jsx';
+import ShipmentDetails from './home/ShipmentDetails.jsx';
 import Admin from './admin/Admin.jsx';
 import AdminDashBoard from './admin/adminDashBoard.jsx';
 import Driver from './admin/driver.jsx'
@@ -29,6 +30,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/ShipmentDetails' element={<ShipmentDetails/>}/>
         <Route path='/Admin' element={<Admin/>}/>
         <Route path='/AdminDashBoard' element={<AdminDashBoard/>}/>
         <Route path='/Driver' element={<Driver/>}/>

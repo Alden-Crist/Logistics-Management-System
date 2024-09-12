@@ -41,7 +41,7 @@ const AdminDashboard = () => {
             navigate('/Inventory');
         }else if (query === 'shipment' || query === 'Shipment') {
             navigate('/Shipment');
-        }else if (query === 'warehouse '  || query === 'Warehouse') {
+        }else if (query === 'warehouse'  || query === 'Warehouse') {
             navigate('/Warehouse');
         }  else if (query === 'Vehicles' || query === 'fleets') {
             navigate('/VehicleRecord');

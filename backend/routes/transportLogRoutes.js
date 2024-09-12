@@ -7,10 +7,10 @@ router
   .get(transportLogController.getAllTransportLogs) 
   .post(transportLogController.createTransportLog)
 
-// router
-//   .route('/:id')
+router.route('/:id').delete(transportLogController.deleteTransportLog); 
+//   
 // .get(transportLogController.getWarehouse) 
 //   .patch(customerController.updateCustomer) 
-//   .delete(customerController.deleteCustomer); 
+
 
 module.exports = router;

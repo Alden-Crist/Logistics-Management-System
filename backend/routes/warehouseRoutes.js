@@ -10,8 +10,8 @@ router
 // router
 //   .route('/:id')
 // .get(warehouseController.getWarehouse) 
-//   .patch(customerController.updateCustomer) 
+//    
 //   .delete(customerController.deleteCustomer); 
-router.route('/:id').delete(warehouseController.deleteWarehouse); 
+router.route('/:id').delete(warehouseController.deleteWarehouse).patch(warehouseController.updateWarehouse);
 
 module.exports = router;

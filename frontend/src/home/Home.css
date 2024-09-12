@@ -82,7 +82,16 @@
 }
 
 .track-form {
-  margin-top: 30px;
+  display: flex;
+  justify-content: center; /* Centers the form horizontally */
+  align-items: center; /* Centers the form vertically if needed */
+  margin-top: 20px; /* Adds some space from the top */
+}
+
+.track-container {
+  display: flex; /* Makes the container a flexbox */
+  justify-content: center; /* Centers the content inside */
+  align-items: center; /* Aligns the input and button vertically */
 }
 
 .track-input {
@@ -95,13 +104,12 @@
 .track-button {
   padding: 10px 20px;
   border: none;
-  margin-left:500px;
-  width:200px;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0;
   background-color: #ff6600;
   color: #fff;
   cursor: pointer;
 }
+
 
 .track-button:hover {
   background-color: #e65c00;

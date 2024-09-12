@@ -31,3 +31,27 @@ exports.createOrderItem =async (req, res) => {
         res.status(500).json({ error: 'Failed to create order item' });
     }
 };
+
+exports.deleteOrderItem = async (req, res) => {
+    try {
+        
+        const orderItem = await OrderItem.findByPk(req.params.id);
+
+        if (!orderItem) {
+            return res.status(404).json({ status: 'fail', message: 'OrderItem  not found' });
+        }
+
+        // Delete the pRODUCT
+        await orderItem.destroy();
+
+        res.status(204).json({
+            status: 'success',
+            data: null,
+        });
+    } catch (err) {
+        res.status(500).json({
+            status: 'fail',
+            message: err.message,
+        });
+    }
+};

@@ -9,9 +9,7 @@ router
 
 router.route('/login').post(supplierController.loginSupplier);
 
-
-//  router
-//   .route('/:id')
+router.route('/:id').delete(supplierController.deleteSupplier); 
 //   .get(customerController.getCustomer) 
 //   .patch(customerController.updateCustomer) 
 //   .delete(customerController.deleteCustomer); 

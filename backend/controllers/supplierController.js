@@ -53,3 +53,27 @@ exports.loginSupplier = async (req, res) => {
         return res.status(500).json({ message: 'Server error' });
     }
 };
+
+exports.deleteSupplier = async (req, res) => {
+    try {
+        // Find the driver first
+        const supplier = await Supplier.findByPk(req.params.id);
+
+        if (!supplier) {
+            return res.status(404).json({ status: 'fail', message: 'Supplier not found' });
+        }
+
+        // Delete the driver
+        await supplier.destroy();
+
+        res.status(204).json({
+            status: 'success',
+            data: null,
+        });
+    } catch (err) {
+        res.status(500).json({
+            status: 'fail',
+            message: err.message,
+        });
+    }
+};

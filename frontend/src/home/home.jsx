@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Home.css';
 import logo from './logo.png'; 
 import backgroundImage from './main-bg.jpg'; 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const [trackingNumber, setTrackingNumber] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+
+  const handleTrack = () => {
+    if (trackingNumber) {
+      // Pass the tracking number to the ShipmentDetails page via state
+      navigate('/ShipmentDetails', { state: { trackingNumber } });
+    } else {
+      setErrorMessage('Please enter a valid tracking number.');
+    }
+  };
+
   return (
     <div>
       <header id="header">
@@ -30,14 +43,23 @@ const Home = () => {
             <h1 className="main-heading">Safe & Reliable Logistic Solutions!</h1>
             <p className="subheading">We ensure your goods are delivered on time, every time.</p>
             <div className="track-form">
-              <input type="text" placeholder="Enter Your Tracking ID" className="track-input" />
-              <button className="track-button">Track & Trace</button>
+            <div className="track-container">
+              <input 
+                type="text" 
+                placeholder="Enter Your Tracking Number" 
+                className="track-input" 
+                value={trackingNumber}
+                onChange={(e) => setTrackingNumber(e.target.value)}
+              />
+              <button className="track-button" onClick={handleTrack}>Track & Trace</button>
+              </div>
             </div>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
         </div>
       </section>
-
-      <section className="services-section">
+      
+ <section className="services-section">
         <div className="container">
           <h2>Our Services</h2>
           <div className="services">
@@ -60,10 +82,6 @@ const Home = () => {
       <footer>
         <div className="container">
           <p>&copy; 2024 Logistics Management System. All rights reserved.</p>
-          <ul className="footer-links">
-            <li><NavLink to="/PrivacyPolicy" className="footer-link">Privacy Policy</NavLink></li>
-            <li><NavLink to="/TermsOfService" className="footer-link">Terms of Service</NavLink></li>
-          </ul>
         </div>
       </footer>
     </div>
