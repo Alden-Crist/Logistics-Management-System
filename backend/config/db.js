@@ -12,7 +12,7 @@ path = require('path');
 // });
 
 
-const certificatePath = path.resolve(__dirname, '/etc/secrets/server-ca.crt');
+//const certificatePath = path.resolve(__dirname, '/etc/secrets/server-ca.crt');
 // // Connection to the remote MySQL database
 
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
