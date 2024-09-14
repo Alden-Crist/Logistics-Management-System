@@ -1,6 +1,6 @@
 import React, { useState, useEffect ,useCallback } from 'react';
 import axios from 'axios';
-import './supplierDashboard.css';
+import './supplierDashboard1.css';
 
 
 const SupplierDashboard = () => {
