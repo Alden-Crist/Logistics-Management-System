@@ -8,7 +8,7 @@ const OrderRecord = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/orders');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/orders`);
         setOrders(response.data);
       } catch (error) {
         console.error("There was an error fetching the orders!", error);

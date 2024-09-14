@@ -10,7 +10,7 @@ const TransportLog = () => {
     useEffect(() => {
         const fetchTransportLogs = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/v1/transportLogs');
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/transportLogs`);
                 const data = await response.json();
                 setTransportLogs(data);
             } catch (error) {

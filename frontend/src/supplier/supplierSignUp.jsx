@@ -43,7 +43,7 @@ const SupplierSignUp = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/suppliers', supplierData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/suppliers`, supplierData);
 
       if (response.status === 200 || response.status === 201) {
         alert('Registration successful!');

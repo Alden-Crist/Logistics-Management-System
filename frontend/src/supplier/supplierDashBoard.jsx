@@ -15,7 +15,7 @@ const SupplierDashboard = () => {
 
   const fetchSuppliedProducts = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/v1/products');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/products`);
       const filteredProducts = response.data.filter(
         product => product.supplier_id === parseInt(supplierId)
       );
@@ -44,7 +44,7 @@ const SupplierDashboard = () => {
     }
 
     try {
-      await axios.post('http://localhost:3000/api/v1/products', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/products`, {
         name: productName,
         description: productDescription,
         price: parseFloat(productPrice),

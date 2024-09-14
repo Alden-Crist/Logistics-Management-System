@@ -10,7 +10,7 @@ const OrderItemsRecord = () => {
   useEffect(() => {
     const fetchOrderItems = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/orderItems');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/orderItems`);
         setOrderItems(response.data);
       } catch (error) {
         console.error("There was an error fetching the order items!", error);

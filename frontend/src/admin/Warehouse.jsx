@@ -15,7 +15,7 @@ const Warehouse = () => {
     }, []);
 
     const fetchWarehouses = () => {
-        axios.get('http://localhost:3000/api/v1/warehouses')
+        axios.get(`${process.env.REACT_APP_API_URL}/api/v1/warehouses`)
             .then(response => {
                 setWarehouses(response.data);
             })
@@ -35,7 +35,7 @@ const Warehouse = () => {
             ...newWarehouse,
             created_at: new Date().toISOString()
         };
-        axios.post('http://localhost:3000/api/v1/warehouses', warehouseData)
+        axios.post(`${process.env.REACT_APP_API_URL}/api/v1/warehouses`, warehouseData)
             .then(response => {
                 setWarehouses([...warehouses, response.data]);
                 setShowForm(false);
@@ -51,7 +51,7 @@ const Warehouse = () => {
     };
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:3000/api/v1/warehouses/${id}`)
+        axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/warehouses/${id}`)
             .then(() => {
                 setWarehouses(warehouses.filter(warehouse => warehouse.id !== id));
             })

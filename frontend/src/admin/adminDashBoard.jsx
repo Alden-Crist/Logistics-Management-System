@@ -11,7 +11,7 @@ const AdminDashboard = () => {
     useEffect(() => {
         const fetchAdminName = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/v1/admins/${adminId}`);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/admins/${adminId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setAdminName(data.data.admin.name);

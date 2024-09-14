@@ -20,7 +20,7 @@ const CustomerDashboard = () => {
   // Fetch inventory data
   const fetchInventory = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/v1/inventory');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/inventory`);
       const availableInventory = response.data.filter(item => item.quantity > 0);
       setInventory(availableInventory);
     } catch (error) {
@@ -31,7 +31,7 @@ const CustomerDashboard = () => {
   // Fetch orders
   const fetchOrders = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/v1/orders?customer_id=${customerId}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/orders?customer_id=${customerId}`);
       setOrders(response.data);
     } catch (error) {
       console.error('Error fetching orders:', error);
@@ -41,7 +41,7 @@ const CustomerDashboard = () => {
   // Fetch order items
   const fetchOrderItems = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/v1/orderItems?customer_id=${customerId}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/orderItems?customer_id=${customerId}`);
       setOrderItems(response.data);
     } catch (error) {
       console.error('Error fetching order items:', error);
@@ -51,7 +51,7 @@ const CustomerDashboard = () => {
   // Fetch shipments
   const fetchShipments = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/v1/shipments?customer_id=${customerId}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/shipments?customer_id=${customerId}`);
       setShipments(response.data);
     } catch (error) {
       console.error('Error fetching shipments:', error);
@@ -94,7 +94,7 @@ const CustomerDashboard = () => {
 
     try {
       // Create order
-      const orderResponse = await axios.post('http://localhost:3000/api/v1/orders', {
+      const orderResponse = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/orders`, {
         customer_id: customerId,
         order_date: new Date().toISOString(),
         status: 'Pending',
@@ -104,7 +104,7 @@ const CustomerDashboard = () => {
       const orderId = orderResponse.data.id;
 
       // Create order item
-      await axios.post('http://localhost:3000/api/v1/orderItems', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/orderItems`, {
         order_id: orderId,
         product_id: Product.id,
         quantity,
@@ -113,7 +113,7 @@ const CustomerDashboard = () => {
       });
 
       // Deduct quantity from inventory
-      await axios.patch(`http://localhost:3000/api/v1/inventory/${selectedInventoryItem.id}`, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/inventory/${selectedInventoryItem.id}`, {
         quantity: selectedInventoryItem.quantity - quantity,
       });
 

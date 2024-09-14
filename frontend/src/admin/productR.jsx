@@ -13,7 +13,7 @@ const ProductRecord = () => {
     // Fetch products
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/products');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/products`);
         setProducts(response.data);
       } catch (error) {
         console.error("There was an error fetching the products!", error);
@@ -23,7 +23,7 @@ const ProductRecord = () => {
     // Fetch inventory
     const fetchInventory = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/inventory');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/inventory`);
         setInventory(response.data);
       } catch (error) {
         console.error("There was an error fetching the inventory!", error);
@@ -33,7 +33,7 @@ const ProductRecord = () => {
     // Fetch warehouses
     const fetchWarehouses = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/warehouses');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/warehouses`);
         setWarehouses(response.data);
       } catch (error) {
         console.error("There was an error fetching the warehouses!", error);
@@ -79,7 +79,7 @@ const ProductRecord = () => {
       if (inventoryItem) {
         // Update the quantity of the existing inventory record
         const updatedQuantity = parseInt(inventoryItem.quantity) + parseInt(quantity);
-        await axios.patch(`http://localhost:3000/api/v1/inventory/${inventoryItem.id}`, {
+        await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/inventory/${inventoryItem.id}`, {
           quantity: updatedQuantity
         });
   
@@ -90,20 +90,20 @@ const ProductRecord = () => {
   
       } else {
         // Add a new inventory record
-        await axios.post('http://localhost:3000/api/v1/inventory', {
+        await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/inventory`, {
           product_id: productId,
           warehouse_id: warehouseId,
           quantity: quantity
         });
   
         // Fetch the updated inventory to reflect the new entry
-        const response = await axios.get('http://localhost:3000/api/v1/inventory');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/inventory`);
         setInventory(response.data);
       }
   
       // Deduct the quantity from the product's stock
       const updatedStockQuantity = product.stock_quantity - quantity;
-      await axios.patch(`http://localhost:3000/api/v1/products/${productId}`, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/products/${productId}`, {
         stock_quantity: updatedStockQuantity
       });
   
@@ -112,7 +112,7 @@ const ProductRecord = () => {
   
       // Deduct the quantity from the warehouse's capacity
       const updatedWarehouseCapacity = warehouse.capacity - quantity;
-      await axios.patch(`http://localhost:3000/api/v1/warehouses/${warehouseId}`, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/v1/warehouses/${warehouseId}`, {
         capacity: updatedWarehouseCapacity
       });
   

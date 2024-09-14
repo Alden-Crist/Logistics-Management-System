@@ -13,7 +13,7 @@ const Driver = () => {
     useEffect(() => {
         const fetchDrivers = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/v1/drivers');
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/drivers`);
                 if (response.ok) {
                     const data = await response.json();
                     console.log('Fetched drivers data:', data); // Log the fetched data
@@ -44,7 +44,7 @@ const Driver = () => {
     const handleAddDriver = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/api/v1/drivers', {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/drivers`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ const Driver = () => {
 
     const handleDeleteDriver = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/v1/drivers/${id}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/drivers/${id}`, {
                 method: 'DELETE'
             });
             if (response.ok) {

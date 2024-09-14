@@ -15,7 +15,7 @@ const VehicleRecord = () => {
   useEffect(() => {
     const fetchVehicles = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/fleets');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/fleets`);
         setVehicles(response.data);
       } catch (error) {
         console.error('There was an error fetching the vehicles!', error);
@@ -40,7 +40,7 @@ const VehicleRecord = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/fleets', vehicleWithDate);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/fleets`, vehicleWithDate);
       
       setVehicles([...vehicles, response.data]); // Update state with the response data
 

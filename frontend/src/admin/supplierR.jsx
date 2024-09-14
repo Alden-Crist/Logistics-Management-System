@@ -6,7 +6,7 @@ const SupplierRecord = () => {
     useEffect(() => {
         const fetchSuppliers = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/v1/suppliers');
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/suppliers`);
                 if (response.ok) {
                     const data = await response.json();
                     setSuppliers(data);

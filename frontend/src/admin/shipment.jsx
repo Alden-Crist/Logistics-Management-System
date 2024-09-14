@@ -7,7 +7,7 @@ const Shipment = () => {
 
     useEffect(() => {
         
-        axios.get('http://localhost:3000/api/v1/shipments')
+        axios.get(`${process.env.REACT_APP_API_URL}/api/v1/shipments`)
             .then(response => {
                 setShipments(response.data);
             })

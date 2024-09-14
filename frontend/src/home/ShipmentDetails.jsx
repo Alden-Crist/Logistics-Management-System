@@ -12,7 +12,7 @@ const ShipmentDetails = () => {
   useEffect(() => {
     const fetchShipmentDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/shipments`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/shipments`, {
           params: { tracking_number: trackingNumber }
         });
         
