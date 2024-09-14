@@ -9,7 +9,8 @@ const Order = sequelize.define('Order', {
         references: {
             model: 'customers',
             key: 'id'
-        }
+        },
+        
     },
     order_date: {
         type: DataTypes.DATE

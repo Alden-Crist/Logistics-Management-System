@@ -13,6 +13,23 @@ exports.getAllWarehouses= async (req, res) => {
 };
 
 
+
+exports.getWarehouse = async (req, res) => {
+    try {
+        const warehouse = await Warehouse.findByPk(req.params.id);
+        if (warehouse) {
+          res.status(200).json(warehouse);
+        } else {
+          res.status(404).json({ error: 'Warehouse not found' });
+        }
+      } catch (err) {
+        console.error('Error fetching warehouse:', err);
+        res.status(500).json({ error: 'An error occurred while fetching warehouse.' });
+      }
+    }
+
+
+
 exports.createWarehouse = async (req, res) => {
     try {
         const { name, location, capacity } = req.body;
@@ -69,3 +86,5 @@ exports.updateWarehouse = async (req, res) => {
         res.status(500).json({ error: 'Failed to update warehouse capacity' });
     }
 };
+
+

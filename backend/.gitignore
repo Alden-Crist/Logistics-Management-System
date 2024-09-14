@@ -1,3 +1,4 @@
 node_modules
-config/server-ca.crt
-config/text.txt
+server-ca.crt
+text.txt
+config.env

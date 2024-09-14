@@ -3,30 +3,32 @@ import axios from 'axios';
 import './CustomerDashBoard.css';
 
 const CustomerDashboard = () => {
-  const [products, setProducts] = useState([]);
+  const [inventory, setInventory] = useState([]);
   const [orders, setOrders] = useState([]);
   const [orderItems, setOrderItems] = useState([]);
   const [shipments, setShipments] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  // States to show/hide tables
   const [showOrders, setShowOrders] = useState(false);
   const [showOrderItems, setShowOrderItems] = useState(false);
   const [showShipments, setShowShipments] = useState(false);
 
-  const customerId = localStorage.getItem('customer_id'); 
-
-  // Use useCallback to memoize the functions
-  const fetchProducts = useCallback(async () => {
+  const customerId = localStorage.getItem('customerId'); 
+  
+  // Fetch inventory data
+  const fetchInventory = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/v1/products');
-      setProducts(response.data);
+      const response = await axios.get('http://localhost:3000/api/v1/inventory');
+      const availableInventory = response.data.filter(item => item.quantity > 0);
+      setInventory(availableInventory);
     } catch (error) {
-      console.error('Error fetching products:', error);
+      console.error('Error fetching inventory:', error);
     }
   }, []);
 
+  // Fetch orders
   const fetchOrders = useCallback(async () => {
     try {
       const response = await axios.get(`http://localhost:3000/api/v1/orders?customer_id=${customerId}`);
@@ -36,6 +38,7 @@ const CustomerDashboard = () => {
     }
   }, [customerId]);
 
+  // Fetch order items
   const fetchOrderItems = useCallback(async () => {
     try {
       const response = await axios.get(`http://localhost:3000/api/v1/orderItems?customer_id=${customerId}`);
@@ -45,6 +48,7 @@ const CustomerDashboard = () => {
     }
   }, [customerId]);
 
+  // Fetch shipments
   const fetchShipments = useCallback(async () => {
     try {
       const response = await axios.get(`http://localhost:3000/api/v1/shipments?customer_id=${customerId}`);
@@ -55,8 +59,12 @@ const CustomerDashboard = () => {
   }, [customerId]);
 
   useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+    fetchInventory();
+  }, [fetchInventory]);
+
+  const handleProductSelect = (productId) => {
+    setSelectedProduct(productId);
+  };
 
   const handleOrder = async () => {
     if (!selectedProduct) {
@@ -64,30 +72,55 @@ const CustomerDashboard = () => {
       return;
     }
 
-    const selectedProductDetails = products.find(product => product.id === parseInt(selectedProduct));
-    const totalAmount = selectedProductDetails.price * quantity;
+    const selectedInventoryItem = inventory.find(item => item.Product.id === parseInt(selectedProduct));
+
+    if (!selectedInventoryItem) {
+      setErrorMessage('Selected product is not available in inventory.');
+      return;
+    }
+
+    if (selectedInventoryItem.quantity === 0) {
+      setErrorMessage('Out of stock');
+      return;
+    }
+
+    if (quantity > selectedInventoryItem.quantity) {
+      setErrorMessage(`Only ${selectedInventoryItem.quantity} items in stock.`);
+      return;
+    }
+
+    const { Product } = selectedInventoryItem;
+    const totalAmount = Product.price * quantity;
 
     try {
+      // Create order
       const orderResponse = await axios.post('http://localhost:3000/api/v1/orders', {
         customer_id: customerId,
         order_date: new Date().toISOString(),
         status: 'Pending',
-        total_amount: totalAmount
+        total_amount: totalAmount,
       });
 
       const orderId = orderResponse.data.id;
 
+      // Create order item
       await axios.post('http://localhost:3000/api/v1/orderItems', {
         order_id: orderId,
-        product_id: selectedProduct,
+        product_id: Product.id,
         quantity,
-        price: selectedProductDetails.price,
-        customer_id: customerId
+        price: Product.price,
+        customer_id: customerId,
+      });
+
+      // Deduct quantity from inventory
+      await axios.patch(`http://localhost:3000/api/v1/inventory/${selectedInventoryItem.id}`, {
+        quantity: selectedInventoryItem.quantity - quantity,
       });
 
       alert('Order placed successfully!');
-      fetchOrders();
-      fetchOrderItems();
+      setErrorMessage('');
+      fetchInventory(); // Fetch updated inventory after the order
+      setOrders((prevOrders) => [...prevOrders, orderResponse.data]);
     } catch (error) {
       console.error('Error placing order:', error);
       alert('Failed to place order.');
@@ -97,14 +130,17 @@ const CustomerDashboard = () => {
   return (
     <div className="container_c">
       <h1>Customer Dashboard</h1>
+      
+      {/* Display error message if any */}
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <div className="section">
         <h2>Order Products</h2>
-        <select onChange={(e) => setSelectedProduct(e.target.value)} value={selectedProduct}>
+        <select onChange={(e) => handleProductSelect(e.target.value)} value={selectedProduct}>
           <option value="">Select a product</option>
-          {products.map((product) => (
-            <option key={product.id} value={product.id}>
-              {product.name} - ${product.price}
+          {inventory.map((item) => (
+            <option key={item.Product.id} value={item.Product.id}>
+              {item.Product.name} - ${item.Product.price}
             </option>
           ))}
         </select>
@@ -117,8 +153,8 @@ const CustomerDashboard = () => {
         <button onClick={handleOrder}>Order</button>
       </div>
 
+      {/* The rest of the component remains unchanged */}
       <div className="section">
-        {/* Buttons to show tables */}
         <button onClick={() => { fetchOrders(); setShowOrders(!showOrders); }}>
           {showOrders ? 'Hide Orders' : 'Show Orders'}
         </button>
@@ -212,6 +248,7 @@ const CustomerDashboard = () => {
           </table>
         </div>
       )}
+      
     </div>
   );
 };

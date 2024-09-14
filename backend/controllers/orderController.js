@@ -15,6 +15,7 @@ exports.getAllOrders = async (req, res) => {
 
 exports.createOrder =async (req, res) => {
     try {
+        console.log(req.body);
         const { customer_id, order_date, status, total_amount } = req.body;
         const newOrder = await Order.create({
             customer_id,

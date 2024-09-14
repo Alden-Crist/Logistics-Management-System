@@ -9,9 +9,10 @@ router
 
 // router
 //   .route('/:id')
-// .get(warehouseController.getWarehouse) 
+//  
 //    
 //   .delete(customerController.deleteCustomer); 
-router.route('/:id').delete(warehouseController.deleteWarehouse).patch(warehouseController.updateWarehouse);
+router.route('/:id').get(warehouseController.getWarehouse).delete(warehouseController.deleteWarehouse).patch(warehouseController.updateWarehouse);
+
 
 module.exports = router;

@@ -9,10 +9,10 @@ router
 
 
 router.route('/login').post(customerController.loginCustomer);
-//  router
-//   .route('/:id')
+
+router.route('/:id').delete(customerController.deleteCustomer);
 //   .get(customerController.getCustomer) 
 //   .patch(customerController.updateCustomer) 
-//   .delete(customerController.deleteCustomer); 
+//    
 
 module.exports = router;
