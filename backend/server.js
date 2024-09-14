@@ -1,3 +1,8 @@
+const dotenv = require("dotenv");
+
+dotenv.config({ path: "./config1.env" });
+
+
 const express = require('express');
 const { sequelize } = require('./models'); // Import sequelize from the models/index.js file
 
